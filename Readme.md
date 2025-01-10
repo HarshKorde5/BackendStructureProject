@@ -2,20 +2,45 @@
 
 This is a backend files and folders structure project 
 
+##### Create initial package.json file using `npm init`
+
 Created .gitignore file and added the code from `git ignore generators`
 
 `.env` file for environment variables this is not pushed as its senstive
 
 Updated `package.json` with `"type" : "module"` for syntax of js such as using `import` instead of `require()` syntax
 
+##### Create `src` folder which will contain all source code
 
 Whenever server files are updated edited we need to start and stop the server each time,so we use the `nodemon` utility of node which just reloads the page everytime changes are made(we can also use --watch but it's not used vastly till now)
 We install it for only development dependency that is devdependency using '-D'
 `npm instal -D nodemon`
 
-Note : updated the package.json file
+##### Note : updated the package.json file
 ```javascript
   "scripts": {
     "dev" : "nodemon src/index.js"
   },
 ```
+
+#### Create other folders such as :
+
+1.controllers
+
+2.db 
+
+3.middlewares 
+
+4.models 
+
+5.routes 
+
+6.utils
+
+
+
+##### Add Prettier plugin `npm i -D prettier`
+
+For deciding syntax such as use of semicolons and other nomanclature to keep it same between all team members.It's a dev dependency.
+
+Create `.prettierrc` and `.prettierignore` files for setting up prettier plugin
