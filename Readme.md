@@ -44,3 +44,20 @@ We install it for only development dependency that is devdependency using '-D'
 For deciding syntax such as use of semicolons and other nomanclature to keep it same between all team members.It's a dev dependency.
 
 Create `.prettierrc` and `.prettierignore` files for setting up prettier plugin
+
+
+## Connect MongoDB to our project
+
+Create MongoDB Atlas account
+
+Get your connection string with username and password
+
+Install the following packages :
+
+1. mongoose
+2. express
+3. dotenv
+
+Configure the .env file by adding MONGODB_URI and PORT number
+
+Add the database name in constants file inside the src folder.
