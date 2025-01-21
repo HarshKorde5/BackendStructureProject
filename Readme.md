@@ -48,9 +48,11 @@ Create `.prettierrc` and `.prettierignore` files for setting up prettier plugin
 
 ## Connect MongoDB to our project
 
-Create MongoDB Atlas account
+Create MongoDB Atlas account.
 
-Get your connection string with username and password
+Get your connection string with username and password.
+
+Add the string as MONGODB_URI in `.env` file.
 
 Install the following packages :
 
@@ -61,3 +63,10 @@ Install the following packages :
 Configure the .env file by adding MONGODB_URI and PORT number
 
 Add the database name in constants file inside the src folder.
+
+##### Two ways to connect to the database :
+
+1 => Directly from the index.js file which is entry point of project and outside the src folder
+2 => Inside from `/src/db` folder's index.js file which is used for database releated functionalities and export the function e.g. `export default connectDB;`
+
+Note : Always use async functions for connection to database as database is in another continent
