@@ -97,7 +97,21 @@ ApiError.js file
 
 ApiResponse.js file
 
-### asyncHandler
+#### asyncHandler
 
 It is a higher order function designed to wrap asynchronous route handlers,the 'requestHandler' is expected to be a asynchronous function  that handles express request and returns a new function  which express can use as a middleware.
+
+### User and Video models with hooks and jwt
+
+`npm install bcrypt`  - for password hashing
+
+`npm install jsonwebtoken`  -   using jwt
+
+Define a pre() hook for the model, this hook does some task just before doing any action on the database model like just 'before' saving. We have similar post() hook which performs action 'after' database operation.
+
+Add ACCESS_TOKEN_SECRET which will be any random string and ACCESS_TOKEN_EXPIRY which will be duration 1d,2d,10d.Add similar refresh tokens.
+
+We can add required custom methods in our schema using the `schema_name.methods.custom_method_name` syntax.
+
+`mongoose-aggregate-paginate-v2` is a plugin used by mongoose to get advanced level queries and pipelines than using insertOne,updateOne,etc.
 
