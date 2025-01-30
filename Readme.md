@@ -101,7 +101,7 @@ ApiResponse.js file
 
 It is a higher order function designed to wrap asynchronous route handlers,the 'requestHandler' is expected to be a asynchronous function  that handles express request and returns a new function  which express can use as a middleware.
 
-### User and Video models with hooks and jwt
+## User and Video models with hooks and jwt
 
 `npm install bcrypt`  - for password hashing
 
@@ -114,4 +114,22 @@ Add ACCESS_TOKEN_SECRET which will be any random string and ACCESS_TOKEN_EXPIRY 
 We can add required custom methods in our schema using the `schema_name.methods.custom_method_name` syntax.
 
 `mongoose-aggregate-paginate-v2` is a plugin used by mongoose to get advanced level queries and pipelines than using insertOne,updateOne,etc.
+
+## Multer and Cloudinary
+
+We use multer for uploading files or the file handling and cloudinary for cloud storage.
+
+We follow the model where the files go from remote location to the server-local storage followed by the cloudinary url:
+
+remote-location->server-local-storage->cloudinary
+
+So as, if any error occurs we don't need to reaccess file from remote location as we will have it in our server's local storage already and unlink as and when required.
+
+`npm install multer`
+
+`npm install cloudinary`
+
+Create a multer middleware for file operations in the /middlewares folder.
+
+Cloudinary can be configured as a utility each time we need to access the files url.Add the .env variables for cloudinary such as the api key,secret key,cloud name.
 
