@@ -133,3 +133,12 @@ Create a multer middleware for file operations in the /middlewares folder.
 
 Cloudinary can be configured as a utility each time we need to access the files url.Add the .env variables for cloudinary such as the api key,secret key,cloud name.
 
+## User route and controller
+
+We will not use app.get directly instead we will use app.use("/main_route_name",middleware_name) (here our middleware is the router)this syntax which will use middlewares such as Router.route("/sub_route_name").post(controller_name), following controller will have all main_route_name sub_route_name methods defined which would be executed using the asyncHandler.
+
+Program flow is as follows : 
+
+Inside app.js : (app.use("/users",userRegister)) --> Inside /routes/user.routes.js : (router.route('/register').post(registerUser)) --> Inside /controllers/user.controller.js : (registerUser variable will have the call to asyncHandler function).
+
+Inshort we can say for every main_route we have a main_controller inside which we have different sub_controllers for sub_routes.
