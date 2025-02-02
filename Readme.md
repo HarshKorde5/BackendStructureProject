@@ -142,3 +142,11 @@ Program flow is as follows :
 Inside app.js : (app.use("/users",userRegister)) --> Inside /routes/user.routes.js : (router.route('/register').post(registerUser)) --> Inside /controllers/user.controller.js : (registerUser variable will have the call to asyncHandler function).
 
 Inshort we can say for every main_route we have a main_controller inside which we have different sub_controllers for sub_routes.
+
+
+#### Use of POSTMAN
+
+Use postman to check the requests parameters results.
+
+You can also use thunderclient.
+
