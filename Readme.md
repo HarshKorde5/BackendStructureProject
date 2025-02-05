@@ -150,3 +150,33 @@ Use postman to check the requests parameters results.
 
 You can also use thunderclient.
 
+Set environment variables in environments tab and use in the url {{env_var_name}}/...
+
+Create separate folder for storing requests for each project so as to directly use when required.
+
+
+#### Register user todos
+
+     get user details from frontend ,
+
+     validation - not empty ,
+
+     check if user already exists : username or email ,
+
+     check for images, check for avatar ,
+
+     upload them to the cloudinary ,
+
+     create user object - create entry in db ,
+
+     remove password and refresh token field from response ,
+
+     check for user creation ,
+
+     return response
+
+Always make todos/steps before coding to make process simpler.
+
+Note : use await for all database calls as database is in another continent and it needs time for operations or else code might give inappropriate results.
+
+
