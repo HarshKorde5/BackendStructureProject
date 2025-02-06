@@ -155,28 +155,30 @@ Set environment variables in environments tab and use in the url {{env_var_name}
 Create separate folder for storing requests for each project so as to directly use when required.
 
 
-#### Register user todos
 
-     get user details from frontend ,
+##### Note : Always make todos/steps before coding to make process simpler.
 
-     validation - not empty ,
-
-     check if user already exists : username or email ,
-
-     check for images, check for avatar ,
-
-     upload them to the cloudinary ,
-
-     create user object - create entry in db ,
-
-     remove password and refresh token field from response ,
-
-     check for user creation ,
-
-     return response
-
-Always make todos/steps before coding to make process simpler.
-
-Note : use await for all database calls as database is in another continent and it needs time for operations or else code might give inappropriate results.
+##### Note : use await for all database calls as database is in another continent and it needs time for operations or else code might give inappropriate results.
 
 
+#### Working of middlewares in routes
+
+The functions having (req,res,next) specifically the next method is called once the working of middleware is finished,then the middleware will just call next() method which will transfer the call to the method to be executed after the middleware.
+
+Consider this example : router.route("/logout").post(verifyJWT, logoutUser)
+
+Once the route is activated the verifyJWT method will be excuted which is the middleware, inside the defination of middleware function we have called next() at the end, this next is referenced to the logoutUser() method which is the route method to be executed.
+
+Inshort we can say that our verfiyJWT method would look like :
+
+```javascript
+function verifyJWT(req, res, next){
+
+  //some code here
+  next();
+}
+```
+
+After next() control will be transfered to logoutUser.
+
+#### If the parameter provided suppose `(req,res,next)` and from these suppose we only need req and next then in some code we might find a '_' which is just used to denote no use
