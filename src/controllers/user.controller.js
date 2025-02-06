@@ -9,18 +9,21 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const generateAccessAndRefreshToken = async(userId) => {
     try{
-        const user = await findById(userId);
+        const user = await User.findById(userId);
 
         const accessToken = user.generateAccessToken();
         const refreshToken = user.generateRefreshToken();
 
+        console.table([accessToken,refreshToken])
+
         user.refreshToken = refreshToken;
+
         await user.save({validateBeforeSave : false})
 
         return {accessToken,refreshToken};
 
     }catch(error){
-        throw new ApiError(500,"Something went wrong while generating refresh and access token");
+        throw new ApiError(500,`Something went wrong while generating refresh and access token ${error} `);
     }
 }
 
@@ -116,7 +119,7 @@ const loginUser = asyncHandler(async (req,res) => {
 
     const {email,username,password} = req.body
 
-    if(!username || !email){
+    if(!username && !email){
         throw new ApiError(400,"Username or password is required")
     }
 
